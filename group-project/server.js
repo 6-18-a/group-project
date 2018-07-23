@@ -1,6 +1,7 @@
 // module imports
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose')
 const bodyParser = require("body-parser");
 const cors = require('cors')
 
@@ -12,9 +13,9 @@ app.use(bodyParser.json())
 
 // var corsOptions = {
 //     origin: 'http://localhost:4200',
-//     optionsSuccessStatus: 200 
+//     optionsSuccessStatus: 200
 // }
-  
+
 // app.use(cors(corsOptions))
 
 // !!! DEVELOPMENT ONLY (end) !!! //
@@ -33,4 +34,3 @@ app.get('/*', (req, res) => {
 
 // server config
 app.listen(process.env.PORT || 8080);
-
