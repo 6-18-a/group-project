@@ -1,0 +1,21 @@
+<h1>Shirt List<h1>
+  <table>
+    <tr>
+      <th>Shirt Name</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Inventory</th>
+      <th>Admin Price</th>
+    </tr>
+  </thead>
+    <tbody>
+      {{#each items}}
+      <tr>
+        <td>{{itemName}}</td>
+        <td>{{price}}</td>
+        <td>{{description}}</td>
+        <td>{{amount}}</td>
+        <td>{{adminprice}}</td>
+      </tr>
+      {{/each}}
+  </table>
