@@ -4,6 +4,10 @@ const path = require('path');
 const bodyParser = require("body-parser");
 const cors = require('cors')
 
+const handlebars = require("express-handlebars").create({ defaultLayout: 'main' });
+app.engine('handlebars', handlebars.engine);
+app.set('view engine', 'handlebars');
+
 // express config
 const app = express();
 app.use(bodyParser.json())
