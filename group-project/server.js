@@ -4,6 +4,10 @@ const path = require('path');
 const bodyParser = require("body-parser");
 const cors = require('cors')
 
+const handlebars = require("express-handlebars").create({ defaultLayout: 'main' });
+app.engine('handlebars', handlebars.engine);
+app.set('view engine', 'handlebars');
+
 // express config
 const app = express();
 app.use(bodyParser.json())
@@ -12,11 +16,24 @@ app.use(bodyParser.json())
 
 // var corsOptions = {
 //     origin: 'http://localhost:4200',
-//     optionsSuccessStatus: 200 
+//     optionsSuccessStatus: 200
 // }
-  
-// app.use(cors(corsOptions))
 
+// app.use(cors(corsOptions))
+app.get("/", (request, response) => {
+  response.render("home");
+});
+
+app.get("/store", (request, response) => {
+  response.render('store');
+});
+
+app.get("/input", (request, response) => {
+  response.render('input');
+});
+app.get("/showItems", (request, response) => {
+  response.render('showItems');
+});
 // !!! DEVELOPMENT ONLY (end) !!! //
 
 
@@ -33,4 +50,3 @@ app.get('/*', (req, res) => {
 
 // server config
 app.listen(process.env.PORT || 8080);
-
